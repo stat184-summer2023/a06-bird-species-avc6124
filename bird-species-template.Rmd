@@ -50,7 +50,7 @@ view(OrdwayBirds)
 
 ```
 
-Observations: 
+Observations: Upon inspecting the data set I can see that there are a bunch of bird secies and a lot od data concerning each individual bird citing. 
 
 ### Step 1
 
@@ -67,6 +67,8 @@ unique_species_clean <-
   n_distinct(OrdwayBirds1$SpeciesName) #275 unique species
 
 ```
+
+Observation: I noticed that the amount od species stayed the same but the variables went from 26 to 3.
 
 ### Step 2
 
@@ -91,10 +93,12 @@ view(joined_birds)
 ```
 
 Which variable(s) was used for matching cases?
-    - SpeciesName Variable
+    -SpeciesName Variable
 
 What were the variable(s) that will be added?
     -SpeciesNameCleaned variable will be added 
+    
+Observation: the OrdwaySPeciesNames table cleaned up the names ans compressed so they can be categorized easier.
 
 ### Step 3
 
@@ -121,7 +125,7 @@ major_bird <-
 
 ```
 
-Observations:
+Observations: the new table is much more orginized and setting a threshold allows us to focus in on specific species.
 
 ### Step 4
 
@@ -192,7 +196,7 @@ According to the graph, we can answer the questions posed:
 -Tree swallow
 
 
-Observations:
+Observations: After completing step four I can observe that allows for people to accuratley determine when its best to go to see each species.
 ```{r}
 
 ```
