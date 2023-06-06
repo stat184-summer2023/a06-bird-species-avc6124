@@ -103,15 +103,25 @@ We want to identify the top 5-6 bird species sighted at the Katherine Ordway Nat
 ```{r}
 # count sightings by species in descending order
 
+sightings_species <- OrdwayBirds %>%
+  count(SpeciesName, sort = TRUE) 
 
 # a hint in the text book recommends displaying the top 10 species to choose our threshold
 
+sightings_species <- OrdwayBirds %>%
+  count(SpeciesName, sort = TRUE) %>%
+  head(10)
 
 # define a sightings threshold; produce a table with only birds belonging to major species
+
+major_bird <-
+  OrdwayBirds %>%
+  filter(SpeciesName %in% sightings_species$SpeciesName)
 
 
 ```
 
+Observations:
 
 ### Step 4
 
@@ -120,13 +130,26 @@ We now want to produce a month-by-month count for each of the major species, and
 ```{r}
 # prepare glyph-ready data table called `ByMonth`
 
+ByMonth <-
+  major_bird %>%
+  group_by(SpeciesName, Month) %>%
+  count()
+
+
 ```
+
+Now use the ggplot template below to generate the desired graph. (Remark you can also use esquisser or mplot to create a line chart instead of the barchart)
 
 
 
 ```{r}
 # ggplot commands
 
+ggplot(ByMonth) +
+  aes(x = Month, y = n, colour = SpeciesName) +
+  geom_point(shape = "circle", size = 4L) +
+  scale_color_hue(direction = 1) +
+  theme_linedraw()
 
 ```
 
@@ -134,16 +157,42 @@ According to the graph, we can answer the questions posed:
 
 ##### 1. Which species are present year-round?  
 
+-American Goldfinch 
+-Black-capped Chickadee
+-Blue Jay
+-Slate-colored Junco
 
 ##### 2. Which species are migratory, that is, primarily present in one or two seasons?
+
+-Catbird
+-Field Sparrow
+-House Wren
+-Robin
+-Song Sparrow
+-Tree Sparrow
 
 
 ##### 3. What is the peak month for each major species? (bullet list)
 
+-	American Goldfinch: October 
+- Black-capped Chickadee: November 
+- Blue Jay: May
+- Catbird: May
+- Field Sparrow: May
+- House Wren: July
+- Robin: May
+- Slate-colored Junco: October
+- Song Sparrow: April
+- Tree Sparrow: March
 
 ##### 4. Which major species are seen in good numbers for at least 6 months of the year?
 
+-American Goldfinch
+-Black-capped Chickadee
+-Tree swallow
 
+
+Observations:
 ```{r}
 
 ```
