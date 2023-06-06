@@ -60,9 +60,13 @@ Observations:
 ```{r}
 # unique species in original data (including mis-spellings)
 
+unique_species_org <-
+  n_distinct(OrdwayBirds$SpeciesName) #275 unique species
 
 # unique species in the clean list
 
+unique_species_clean <-
+  n_distinct(OrdwayBirds1$SpeciesName) #275 unique species
 
 ```
 
