@@ -55,8 +55,6 @@ Observations:
 ### Step 1
 
 
-
-
 ```{r}
 # unique species in original data (including mis-spellings)
 
@@ -70,22 +68,33 @@ unique_species_clean <-
 
 ```
 
-Observations:
-
 ### Step 2
 
 
 ```{r}
 # inspect OrdwaySpeciesNames
 
+head(OrdwaySpeciesNames)
+view(OrdwaySpeciesNames)
 
 # inner join
 
+joined_birds <-
+  OrdwayBirds %>%
+  inner_join(OrdwaySpeciesNames)
   
 # inspect the data after the join
 
+head(joined_birds)
+view(joined_birds)
 
 ```
+
+Which variable(s) was used for matching cases?
+    - SpeciesName Variable
+
+What were the variable(s) that will be added?
+    -SpeciesNameCleaned variable will be added 
 
 ### Step 3
 
